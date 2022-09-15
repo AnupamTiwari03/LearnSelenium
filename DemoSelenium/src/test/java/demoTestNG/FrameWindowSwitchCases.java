@@ -10,12 +10,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class FrameWindowSwitchCases {
+	public WebDriver driver;
+
 	@Test
 	public void testGoogle() {
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\July 2022 -Automation\\Selenium Project\\DemoSelenium\\driver\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		// facing issue hence using web driver manager
+		// System.setProperty("webdriver.chrome.driver", "E:\\July 2022
+		// -Automation\\Selenium Project\\DemoSelenium\\driver\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		driver.manage().window().maximize();
 
