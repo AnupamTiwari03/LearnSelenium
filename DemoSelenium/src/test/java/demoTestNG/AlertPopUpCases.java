@@ -8,12 +8,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+/**
+ * @author Anupam
+ * Problem Statement : In case you are working on a web site and
+ * on that sudden pop up or alert comes then this solution will help to solve
+ * that problem.
+ * 
+ */
 public class AlertPopUpCases {
+	public WebDriver driver;
+
 	@Test
 	public void testAlertPopups() {
-
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\July 2022 -Automation\\Selenium Project\\DemoSelenium\\driver\\chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver","path of chrome driver");
+		
+		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 

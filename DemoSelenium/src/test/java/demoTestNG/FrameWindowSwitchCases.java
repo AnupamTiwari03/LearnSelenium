@@ -12,14 +12,20 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+/**
+ * @author Anupam
+ * Problem Statement : In case you got multiple windows and you
+ * to switch from one window to another window and perform some task then this
+ * solution will help. facing issue with chrome driver hence using
+ * WebDriverManager.
+ */
 public class FrameWindowSwitchCases {
 	public WebDriver driver;
 
 	@Test
 	public void testGoogle() {
-		// facing issue hence using web driver manager
-		// System.setProperty("webdriver.chrome.driver", "E:\\July 2022
-		// -Automation\\Selenium Project\\DemoSelenium\\driver\\chromedriver.exe");
+		// System.setProperty("webdriver.chrome.driver","path of chrome driver");
+
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
@@ -63,7 +69,7 @@ public class FrameWindowSwitchCases {
 
 		}
 		driver.switchTo().window(parentWindow);
-
+		System.out.println("Switched to Parent window");
 		driver.close();
 		driver.quit();
 

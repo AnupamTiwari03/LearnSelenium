@@ -9,12 +9,22 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+/**
+ * @author Anupam 
+ * To perform drag and drop operation use this solution.
+ *
+ */
 public class DragDropCases {
+	public WebDriver driver;
+
 	@Test
 	public void dragDropFeatureAutomation() {
+		// System.setProperty("webdriver.chrome.driver","path of chrome driver");
 
-		System.setProperty("webdriver.chrome.driver",
-				"E:\\July 2022 -Automation\\Selenium Project\\DemoSelenium\\driver\\chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 
@@ -49,7 +59,7 @@ public class DragDropCases {
 		WebElement dragMe = driver.findElement(By.xpath("//*[@id='draggable']//child::p[text()='Drag me around']"));
 
 		act.dragAndDropBy(dragMe, 60, 40).build().perform();
-		;
+		System.out.println("Sucessfully completed drag and drop");
 
 		driver.close();
 		driver.quit();
